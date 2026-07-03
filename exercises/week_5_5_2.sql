@@ -25,6 +25,10 @@ order by flt_id;
 select ticket_id, flt_id, passenger_id, price, booking_time, sum(price) over(partition by flt_id order by booking_time) as flt_total
 from tickets;
 
+--Day 5
+  --
+
+
 
 
 
