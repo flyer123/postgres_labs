@@ -55,3 +55,16 @@ SELECT
     ) AS average_price
 FROM tickets;
 
+-- Day 6
+ -- Problem:
+ SELECT
+    SUM(t.price) AS revenue
+FROM tickets t
+JOIN events e
+    ON t.ticket_id = e.entity_id;
+
+ -- solution:
+ select sum(price) from tickets t
+where exists (select 1 from events e where t.ticket_id=e.entity_id);
+
+

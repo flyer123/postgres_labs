@@ -213,43 +213,43 @@ Each week contains:
 
 # 🧠 Topics Covered
 
-## Week 1
+## Week 1 ✅
 Basic querying & filtering
 
-## Week 2
+## Week 2 ✅
 Aggregations & KPI validation
 
-## Week 3
+## Week 3 ✅
 Joins & row multiplication
 
-## Week 4
+## Week 4 ✅
 Subqueries vs joins
 
-## Week 5
+## Week 5 ✅
 Window function foundations
 
-## Week 5.5.1
+## Week 5.5.1 ✅
 Business analytics with windows
 
-## Week 5.5.2
+## Week 5.5.2 🚧
 Advanced analytical debugging
 
-## Week 6
+## Week 6 📅
 Advanced windows & ranking
 
-## Week 7
+## Week 7 📅
 Deduplication & analytical correctness
 
-## Week 8
+## Week 8 📅
 Event-stream analytics
 
-## Week 10
+## Week 10 📅
 Execution plans & indexing
 
-## Week 11
+## Week 11 📅
 Data quality validation
 
-## Week 12
+## Week 12 📅
 Incremental pipelines & idempotency
 
 ---
