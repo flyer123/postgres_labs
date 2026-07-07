@@ -56,7 +56,7 @@ SELECT
 FROM tickets;
 
 -- Day 6
- -- Problem:
+ -- Problem 1:
  SELECT
     SUM(t.price) AS revenue
 FROM tickets t
@@ -67,4 +67,67 @@ JOIN events e
  select sum(price) from tickets t
 where exists (select 1 from events e where t.ticket_id=e.entity_id);
 
+ -- Problem 2:
+ SELECT
+    t.flt_id,
+    SUM(t.price) AS revenue
+FROM tickets t
+JOIN events e
+    ON t.ticket_id = e.entity_id
+GROUP BY t.flt_id
+ORDER BY revenue DESC;
 
+ -- solution:
+ select 
+    t.flt_id, 
+    sum(t.price) as revenue 
+    from tickets t 
+    where exists ( 
+       select 1 
+       from events e 
+       where e.entity_id=t.ticket_id 
+    ) 
+  group by t.flt_id 
+  order by revenue desc;
+
+   -- Problem 3:
+   SELECT
+    p.country,
+    SUM(t.price) AS revenue
+FROM tickets t
+JOIN events e
+    ON t.ticket_id = e.entity_id
+JOIN passengers p
+    ON t.passenger_id = p.passenger_id
+GROUP BY p.country;
+
+ -- solution:
+ SELECT
+    p.country,
+    SUM(t.price) AS revenue
+FROM tickets t
+JOIN passengers p
+    ON t.passenger_id = p.passenger_id
+WHERE EXISTS (
+    SELECT 1
+    FROM events e
+    WHERE e.entity_id = t.ticket_id
+)
+GROUP BY p.country;
+
+-- Problem 4:
+SELECT
+    COUNT(*) AS tickets
+FROM tickets t
+JOIN events e
+    ON t.ticket_id = e.entity_id;
+
+ -- solution:
+ SELECT
+  COUNT(*) AS tickets
+FROM tickets t 
+WHERE EXISTS (
+  SELECT 1
+  FROM events e
+  WHERE e.entity_id=t.ticket_id
+);
