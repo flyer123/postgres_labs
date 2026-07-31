@@ -131,3 +131,53 @@ WHERE EXISTS (
   FROM events e
   WHERE e.entity_id=t.ticket_id
 );
+
+-- Problem 5:
+SELECT
+    AVG(t.price)
+FROM tickets t
+JOIN events e
+    ON t.ticket_id = e.entity_id;
+
+ -- solution:
+ SELECT AVG(price)
+FROM tickets t
+JOIN events e
+ON t.ticket_id = e.entity_id;
+
+-- Problem 6:
+SELECT
+    t.booking_time::date,
+    SUM(t.price) AS revenue
+FROM tickets t
+JOIN events e
+    ON t.ticket_id = e.entity_id
+GROUP BY t.booking_time::date
+ORDER BY 1;
+
+ -- solution:
+ SELECT
+    t.booking_time::date,
+    SUM(t.price) AS revenue
+FROM tickets t
+where exists ( select 1 from events e
+    where t.ticket_id = e.entity_id)
+GROUP BY t.booking_time::date
+ORDER BY 1;
+
+
+-- Problem 7
+SELECT
+    t.passenger_id,
+    SUM(t.price) AS revenue
+FROM tickets t
+JOIN events e
+    ON t.ticket_id = e.entity_id
+GROUP BY t.passenger_id;
+
+ -- solutions:
+ select t.passenger_id, sum(t.price) as revenue from tickets t
+where exists(select 1 from events e where e.entity_id=t.ticket_id)
+group by t.passenger_id;
+
+
