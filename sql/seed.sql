@@ -1,5 +1,5 @@
-COPY airports FROM '/docker-entrypoint-initdb.d/airports.csv' CSV;
-COPY flights FROM '/docker-entrypoint-initdb.d/flights.csv' CSV;
-COPY passengers FROM '/docker-entrypoint-initdb.d/passengers.csv' CSV;
-COPY tickets FROM '/docker-entrypoint-initdb.d/tickets.csv' CSV;
-COPY events FROM '/docker-entrypoint-initdb.d/events.csv' CSV;
+COPY airports FROM '/sql/airports.csv' CSV;
+COPY flights FROM '/sql/flights.csv' CSV;
+COPY passengers FROM '/sql/passengers.csv' CSV;
+COPY tickets FROM '/sql/tickets.csv' CSV;
+COPY events FROM '/sql/events.csv' CSV;

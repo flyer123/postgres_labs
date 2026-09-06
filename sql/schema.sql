@@ -34,3 +34,4 @@ CREATE TABLE events (
     entity_id INT,
     event_time TIMESTAMP
 );
+
